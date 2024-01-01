@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: #2e3537;
+        font-family: "Arial", sans-serif;
+      }
+
+      :root {
+        --cards: 4;
+        --cardHeight: 87vh;
+        --cardTopPadding: 1.5em;
+        --cardMargin: 4vw;
+      }
+
+      .container {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      #cards {
+        list-style: none;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(var(--cards), var(--cardHeight));
+        gap: var(--cardMargin);
+        padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+        margin-bottom: var(--cardMargin);
+      }
+
+      #card1 {
+        --index: 1;
+      }
+      #card2 {
+        --index: 2;
+      }
+      #card3 {
+        --index: 3;
+      }
+      #card4 {
+        --index: 4;
+      }
+
+      .card {
+        position: sticky;
+        top: 0;
+        padding-top: calc(var(--index) * var(--cardTopPadding));
+      }
+
+      #card1 .card-body {
+        background-color: #52b2cf;
+      }
+      #card2 .card-body {
+        /* background-color: #7EC4CF; */
+        background-color: #e5a36f;
+      }
+      #card3 .card-body {
+        background-color: #9cadce;
+      }
+      #card4 .card-body {
+        background-color: #d4afb9;
+      }
+
+      .card-body {
+        box-sizing: border-box;
+        padding: 30px;
+        border-radius: 50px;
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+        height: var(--cardHeight);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s;
+      }
+
+      h2 {
+        font-size: 2.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul id="cards">
+        <li class="card" id="card1">
+          <div class="card-body">
+            <h2>Card 1</h2>
+          </div>
+        </li>
+        <li class="card" id="card2">
+          <div class="card-body">
+            <h2>Card 2</h2>
+          </div>
+        </li>
+        <li class="card" id="card3">
+          <div class="card-body">
+            <h2>Card 3</h2>
+          </div>
+        </li>
+        <li class="card" id="card4">
+          <div class="card-body">
+            <h2>Card 4</h2>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="boweries-slider">
+      <div class="swiper-wrapper">
+                                                                                          <div class="swiper-slide" data-flow-area>
+                      <div class="card-img type-1"
+                          data-image-overlay="berry">
+                                                                  <div class="img">
+                                  <img src="https://bowery.co/wp-content/uploads/2023/03/screenshot-2023-04-14-at-171222-818x1024-1.webp" alt="">
+                              </div>
+                                                              <div class="content">
+                              <div class="top-content">
+                                  <div class="text-overline-sm">Maryland</div>
+                              </div>
+                              <div class="bottom-content">
+                                  <h4>Nottingham Bowery</h4>
+                              </div>
+                          </div>
+
+                          <span class="opener" data-more data-outside>
+                              <span class="close">
+                                  <span class="icon-close"></span>
+                              </span>
+                          </span>
+                          <div class="content slide" style="background-image: url(https://bowery.co/wp-content/uploads/2023/03/Vector.png)">
+                              <div class="top-content">
+                                  <div class="text-overline-sm">Maryland</div>
+                              </div>
+                              <div class="bottom-content">
+                                  <h3>Nottingham Bowery</h3>
+                                  <div class="body-medium">
+                                      <p>Right outside Baltimore, we've turned industrial real estate into a green-as-can-be vertical farm.</p>
+                                                                                          <a class="btn-tertiary white" href="https://bowery.co/about-us/">
+                                              <span class="icon"><svg>
+                                                      <circle cx="15" cy="15" r="14" />
+                                                  </svg></span>
+                                              Learn More
+                                          </a>
+                                                                                  </div>
+                                  <a class="close" data-close><span class="icon-close"></span></a>
+                              </div>
+                          </div>
+                      </div>
+                                                                                  </div>
+                                                                                                  <div class="swiper-slide" data-flow-area>
+                      <div class="card-img type-2"
+                          data-image-overlay="berry">
+                                                                  <div class="img">
+                                  <img src="https://bowery.co/wp-content/uploads/2023/04/farm-photo-1.webp" alt="">
+                              </div>
+                                                              <div class="content">
+                              <div class="top-content">
+                                  <div class="text-overline-sm">New Jersey</div>
+                              </div>
+                              <div class="bottom-content">
+                                  <h4>Kearny R&#038;D Bowery</h4>
+                              </div>
+                          </div>
+
+                          <span class="opener" data-more data-outside>
+                              <span class="close">
+                                  <span class="icon-close"></span>
+                              </span>
+                          </span>
+                          <div class="content slide" style="background-image: url(https://bowery.co/wp-content/uploads/2023/03/kearny-campus.png)">
+                              <div class="top-content">
+                                  <div class="text-overline-sm">New Jersey</div>
+                              </div>
+                              <div class="bottom-content">
+                                  <h3>Kearny R&#038;D Bowery</h3>
+                                  <div class="body-medium">
+                                      <p>Where our modern farmers grow the tastiest fruits and veggies for all of the Tri-State.</p>
+                                                                                          <a class="btn-tertiary white" href="https://bowery.co/about-us/">
+                                              <span class="icon"><svg>
+                                                      <circle cx="15" cy="15" r="14" />
+                                                  </svg></span>
+                                              Learn More
+                                          </a>
+                                                                                  </div>
+                                  <a class="close" data-close><span class="icon-close"></span></a>
+                              </div>
+                          </div>
+                      </div>
+                                                          <div class="decor" data-flow-movement="100% 100%"  data-flow-tablet="0% 100%" data-flow-invert>
+                              <img src="https://bowery.co/wp-content/themes/bowery-farming/assets/images/illustrate-14.svg" width="74"
+                                  alt="illustrate">
+                          </div>
+                                                                                  </div>
+                                                                                                  <div class="swiper-slide" data-flow-area>
+                      <div class="card-img type-3"
+                          data-image-overlay="berry">
+                                                                  <div class="img">
+                                  <img src="https://bowery.co/wp-content/uploads/2023/03/bethlehem-grow-room-4-1024x681-copy.webp" alt="">
+                              </div>
+                                                              <div class="content">
+                              <div class="top-content">
+                                  <div class="text-overline-sm">Pennsylvania</div>
+                              </div>
+                              <div class="bottom-content">
+                                  <h4>Bethlehem Bowery</h4>
+                              </div>
+                          </div>
+
+                          <span class="opener" data-more data-outside>
+                              <span class="close">
+                                  <span class="icon-close"></span>
+                              </span>
+                          </span>
+                          <div class="content slide" style="background-image: url(https://bowery.co/wp-content/uploads/2023/03/bethlehem-bowery.png)">
+                              <div class="top-content">
+                                  <div class="text-overline-sm">Pennsylvania</div>
+                              </div>
+                              <div class="bottom-content">
+                                  <h3>Bethlehem Bowery</h3>
+                                  <div class="body-medium">
+                                      <p>Home to Pennsylvania’s most advanced farm. We repurposed a steel mill site and gave it a futuristic makeover.</p>
+                                                                                          <a class="btn-tertiary white" href="https://bowery.co/about-us/">
+                                              <span class="icon"><svg>
+                                                      <circle cx="15" cy="15" r="14" />
+                                                  </svg></span>
+                                              Learn More
+                                          </a>
+                                                                                  </div>
+                                  <a class="close" data-close><span class="icon-close"></span></a>
+                              </div>
+                          </div>
+                      </div>
+                                                                                          <div class="decor" data-flow-movement="0% 100%">
+                              <img src="https://bowery.co/wp-content/themes/bowery-farming/assets/images/illustrate-15.svg" width="159"
+                                  alt="illustrate-15">
+                          </div>
+                                                  </div>
+                                                                              </div>
+
+  </body>
+</html>
+
+$(document).ready(function () { // 변수 초기화 var slideIndex = 0; var
+slideWidth = $(".slide").outerWidth(); var totalSlides = $(".slide").length; //
+이전 버튼 클릭 시 $(".prev").on("click", function () { slideIndex = (slideIndex
+- 1 + totalSlides) % totalSlides; updateCarousel(); }); // 다음 버튼 클릭 시
+$(".next").on("click", function () { slideIndex = (slideIndex + 1) %
+totalSlides; updateCarousel(); }); // 일정 간격으로 자동으로 넘어가는 함수
+function autoSlide() { slideIndex = (slideIndex + 1) % totalSlides;
+updateCarousel(); } // 일정 시간 간격으로 자동 슬라이드 호출 var intervalId =
+setInterval(autoSlide, 2000); // 슬라이드 업데이트 함수 function
+updateCarousel() { $(".slides").animate({ "left": -slideWidth * slideIndex },
+500); } });

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HARIBO</title>
+    <link href="img/haribo_char.png" rel="shortcut icon" />
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/main.js"></script>
+    <script
+      src="https://c.webfontfree.com/c.js?f=ErasITC-Bold"
+      type="text/javascript"
+    ></script>
+    <link href="main.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300&family=Play:wght@400;700&family=Rammetto+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      :root {
+        --cards: 4;
+        --cardHeight: 83vh;
+        --cardTopPadding: 3em;
+        --cardMargin: 4vw;
+        --totalHeight: calc(
+          var(--cardHeight) * var(--cards) + var(--cardTopPadding) *
+            (var(--cards) - 1) + var(--cardMargin) * 4
+        );
+      }
+
+      .con2 {
+        width: 90%;
+        margin: 0 auto;
+        height: 360vh;
+        display: flex;
+        position: relative !important;
+      }
+
+      #cards {
+        width: 100%;
+        min-height: 360vh;
+        position: relative !important;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--cardMargin);
+        padding-bottom: 6em;
+        align-self: flex-start;
+      }
+
+      #card1 {
+        --index: 1;
+        top: 0;
+      }
+      #card2 {
+        --index: 2;
+        top: 3rem;
+      }
+      #card3 {
+        --index: 3;
+        top: 6rem;
+      }
+      #card4 {
+        --index: 4;
+        top: 9rem;
+      }
+
+      .card {
+        display: inline-block;
+        width: 100%;
+        position: -webkit-sticky;
+        position: sticky;
+        padding-top: calc(var(--index) * var(--cardTopPadding));
+        align-self: flex-start;
+        height: var(--cardHeight);
+      }
+
+      #card1 .card-body {
+        background-color: #f15745;
+        align-self: flex-start;
+      }
+      #card2 .card-body {
+        background-color: #f277a0;
+        align-self: flex-start;
+      }
+      #card3 .card-body {
+        background-color: #ffc567;
+        align-self: flex-start;
+      }
+      #card4 .card-body {
+        background-color: #554099;
+        align-self: flex-start;
+      }
+      .card-body {
+        box-sizing: border-box;
+        padding: 30px;
+        border-radius: 50px;
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+        height: 100%;
+        transition: all 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="bars">
+        <div class="bars_wrap">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="side_menu">
+        <div class="side_inner">
+          <ul class="menu">
+            <li>
+              <span>01</span>
+              <p><a href="#visual">HOME</a></p>
+            </li>
+            <li>
+              <span>02</span>
+              <p><a href="#list1">PRODUCT</a></p>
+            </li>
+            <li>
+              <span>03</span>
+              <p><a href="#list2">Portfolio</a></p>
+            </li>
+            <li>
+              <span>04</span>
+              <p><a href="#list4">CONTACT</a></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="visual" class="splash">
+        <div class="heading">
+          <h1>
+            <span>Kids and grown-ups</span>
+            <span>love it so,</span>
+            <span>the happy world of</span>
+            <span class="p_big">Haribo!</span>
+          </h1>
+        </div>
+        <div class="gummy">
+          <img src="img/all_haribo.png" />
+        </div>
+      </div>
+      <!--visual 끝(위)-->
+      <div id="container">
+        <div class="con_wrap_wrap">
+          <div class="bg_wrap">
+            <div class="starmix_bg bg"></div>
+            <div class="gold_bg bg"></div>
+            <div class="cola_bg bg"></div>
+            <div class="worm_bg bg"></div>
+            <div class="fruity_bg bg"></div>
+            <div class="grapes_bg bg"></div>
+          </div>
+          <div class="con_wrap">
+            <div class="con1 con1_wrap">
+              <div class="bg_wrap">
+                <div class="starmix_bg bg"></div>
+                <div class="gold_bg bg"></div>
+                <div class="cola_bg bg"></div>
+                <div class="worm_bg bg"></div>
+                <div class="fruity_bg bg"></div>
+                <div class="grapes_bg bg"></div>
+              </div>
+              <div class="carousel">
+                <div class="cs_wrap_wrap">
+                  <div class="cs_wrap">
+                    <div class="text_wrap">
+                      <div class="text_starmix text_1 txt">
+                        <h3>STARMIX</h3>
+                        <p>
+                          Starmix와 함께 다채로운 하리보 우주를 향해
+                          맛있는탐험을 즐겨보세요.<br />마시멜로우 하트에서부터
+                          과일젤리 우정 반지와 전설적인 골드베렌까지.<br />
+                          은하계의 다양한 맛, 온 가족과 함께하세요.
+                        </p>
+                        <p><a href="#">MORE</a></p>
+                      </div>
+                      <div class="text_goldbaren txt">
+                        <h3>GOLDBAREN</h3>
+                        <p>
+                          누구에게나 친숙한 곰 모양 젤리. <br />하리보의
+                          시그니처인 오리지널 곰돌이는 1922년부터 꾸준히<br />
+                          아이들은 물론 어른 팬들의 사랑을 받고 있습니다.
+                          파인애플에서부터<br />레몬 맛까지 여섯 가지 알록달록한
+                          골드베렌에는 공유하고 싶은<br />맛있는 즐거움이 담겨
+                          있습니다.
+                        </p>
+                        <p><a href="#">MORE</a></p>
+                      </div>
+                      <div class="text_cola text_2 txt">
+                        <h3>HAPPY COLA</h3>
+                        <p>
+                          클래식 콜라 맛을 그대로 담은 깜직하고 귀여운 콜라병
+                          모양 젤리.
+                          <br />해피콜라로 맛있는 갈증을 해소해 보세요!
+                        </p>
+                        <p><a href="#">MORE</a></p>
+                      </div>
+                      <div class="text_worm text_3 txt">
+                        <h3>WORMS</h3>
+                        <p>
+                          어떤 맛을 먹어야 할지 고민되시나요?<br />
+                          HARIBO Worms는 하나로 두 가지 맛을 즐길 수 있어서
+                          아이들은 물론<br />어른팬들에게도 사랑받고
+                          있습니다.<br />
+                          딸기-파인애플, 오렌지-살구 또는 라즈베리-레몬,
+                          <br />어떤 맛이든 모든 젤리가 끝없이 들어가요.
+                        </p>
+                        <p><a href="#">MORE</a></p>
+                      </div>
+                      <div class="text_fruity text_4 txt">
+                        <h3>Fruity Bussi</h3>
+                        <p>
+                          Fruity-Bussi는 부드러운 마시멜로우에 상큼한 과일
+                          젤리가 더해져<br />사랑스러운 달콤함을 전합니다! 망고,
+                          라즈베리, 오렌지, 복숭아<br />그리고 살구 맛의 과즙
+                          쪽쪽!<br />
+                          상큼한 Fruity-Bussi를 즐겨보세요!
+                        </p>
+                        <p><a href="#">MORE</a></p>
+                      </div>
+                      <div class="text_grapes text_5 txt">
+                        <h3>Happy Grapes</h3>
+                        <p>
+                          포도라고 다 똑같은 포도는 아니죠.<br />
+                          HARIBO Grapes에는 잘 익은 포도의 달콤함,<br />
+                          새콤달콤 맛과 향, 청포도의 상큼함! 이 세 가지 포도
+                          맛이 담겨 있습니다.<br />
+                          어떤 포도를 먼저 맛볼까요?
+                        </p>
+                        <p><a href="#">MORE</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--textwrap end-->
+                <div class="pack_wrap">
+                  <div class="starmix_pack pack">
+                    <img src="img/pack_starmix.png" />
+                  </div>
+                  <div class="goldbaren_pack pack">
+                    <img src="img/pack_Goldbaeren.png" />
+                  </div>
+                  <div class="cola_pack pack">
+                    <img
+                      src="img/pack_cola.png
+                "
+                    />
+                  </div>
+                  <div class="worms_pack pack">
+                    <img src="img/pack_worms.png" />
+                  </div>
+                  <div class="fruity_pack pack">
+                    <img src="img/pack_fruity.png" />
+                  </div>
+                  <div class="grapes_pack pack">
+                    <img src="img/pack_grapes.png" />
+                  </div>
+                </div>
+
+                <div class="sm_jelly_wrap">
+                  <div class="sm_wrap">
+                    <div class="sm_goldbaren sm_jelly">
+                      <img src="img/pack_Goldbaeren.png" />
+                    </div>
+                    <div class="sm_cola sm_jelly">
+                      <img src="img/pack_cola.png" />
+                    </div>
+                    <div class="sm_worms sm_jelly">
+                      <img src="img/pack_worms.png" />
+                    </div>
+                    <div class="sm_fruity sm_jelly">
+                      <img src="img/pack_fruity.png" />
+                    </div>
+                    <div class="sm_grapes sm_jelly">
+                      <img src="img/pack_grapes.png" />
+                    </div>
+                  </div>
+                </div>
+                <!--smalljelly end-->
+                <div class="jelly_wrap">
+                  <div class="starmix_jelly jelly">
+                    <img src="img/jelly_starmix.png" />
+                  </div>
+                  <div class="goldbaren_jelly jelly">
+                    <img src="img/jelly_gold.png" />
+                  </div>
+                  <div class="cola_jelly jelly">
+                    <img src="img/jelly_cola.png" />
+                  </div>
+                  <div class="worms_jelly jelly">
+                    <img src="img/jelly_worms.png" />
+                  </div>
+                  <div class="fruity_jelly jelly">
+                    <img src="img/jelly_fruity.png" />
+                  </div>
+                  <div class="grapes_jelly jelly">
+                    <img src="img/jelly_grapes.png" />
+                  </div>
+                </div>
+                <!--jellywrap end-->
+              </div>
+            </div>
+          </div>
+          <!--carousel end-->
+        </div>
+        <!--con1끝-->
+        <div class="cards_wrap container_1 con2">
+          <ul id="cards">
+            <li class="card" id="card1">
+              <div class="card-body">
+                <h2>160,000,000</h2>
+                <div class="step_text">
+                  <p>
+                    우리가 전 세계적으로 매일 생산하는 Goldbears의 수입니다.
+                    우리는 최고의 재료, 독창적인 조리법 및 엄격한 검사를 모든
+                    곳에서 사용합니다. 무엇보다도 중요한 것은 품질입니다
+                  </p>
+                  <div class="step_img">
+                    <img src="img/haribo_img_1.png" />
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="card" id="card2">
+              <div class="card-body">
+                <h2>1,000</h2>
+                <div class="step_text">
+                  <p>
+                    하리보는 전 세계에서 다양한 제품을 생산합니다.<br />
+                    1,000 여개의 종류가 넘는 하리보 젤리들의<br />
+                    알록달록, 즐겁고 다양한 맛과 모양으로 즐거움을
+                    느껴보세요!<br />
+                  </p>
+                  <div class="step_img">
+                    <img src="img/haribo_img_2.png" />
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="card" id="card3">
+              <div class="card-body">
+                <h2>100</h2>
+                <div class="step_text">
+                  <p>
+                    3세대 동안 이어진 가족기업이 2020년 12월 13일에 창립
+                    100주년을 맞이합니다.<br />100년 동안 하리보 제품은 달콤한
+                    간식과 함께 소소한 행복을 전해 드리고 있습니다. 100주년을
+                    기념하여 매력적인 하리보의 역사를 되돌아보고<br />
+                    미래지향적인 모습으로 소비자들과 함께 "100년의 행복을
+                    함께해요"라는 슬로건으로 축하하고 있습니다.
+                  </p>
+                  <div class="step_img">
+                    <img src="img/werbeanzeige_historisch.jpg" />
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="card" id="card4">
+              <div class="card-body">
+                <h2>10</h2>
+                <div class="step_text">
+                  <p>
+                    일렬로 늘어서면 골드 베어즈의 연간 생산량은<br />전세계를
+                    10바퀴를 돌게 됩니다.
+                  </p>
+                  <div class="step_img">
+                    <img src="img/global.png" />
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!--con2 접히는 슬라이드 끝-->
+        <div class="con3">
+          <div class="con3_inner inner">
+            <div class="procedure_wrap">
+              <div class="procedure">
+                <div class="pd_flex_1">
+                  <div class="pd_text">
+                    <h2>뛰어난 품질이 최우선!</h2>
+                    <p>
+                      신선하고 안전한 하리보 제품 소비자가 신뢰할 수
+                      있습니다.<br />제품 개발(입고) - 생산 - 물류 과정을 거쳐
+                      고객에게 닿을 때까지<br />우리는 품질이 저하되지 않도록
+                      올바른 보관 조건을 지킵니다.<br />이를 통해 소비자는 언제
+                      어디서나 하리보 제품의 완전한<br />품질의 맛, 모양과
+                      식감을 즐길 수 있습니다.
+                    </p>
+                  </div>
+                  <div class="pro_img_wrap piw_1">
+                    <div class="pro_img p_1">
+                      <div class="title_button">
+                        <h4>제품 개발(입고)</h4>
+                        <div class="pro_button">
+                          <span class="material-symbols-outlined"> close </span>
+                        </div>
+                      </div>
+                      <div class="img_width"></div>
+                      <div class="pro_back">
+                        <div class="pro_bg"></div>
+                        <img src="img/bear_red.png" />
+                        <div class="pro_back_text">
+                          <p>
+                            새로운 레시피를 개발할 때마다 각 원료의 품질을 주의
+                            깊게 검사하고 완성된 제품의 맛과 향, 식감을 철저히
+                            테스트하며 완벽한 레시피가 만들어질 때까지 이 과정을
+                            반복합니다.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <img class="p_1_img" src="img/bear-wave-kneel.png" />
+                  </div>
+                </div>
+                <div class="pd_flex_2">
+                  <div class="pro_img_wrap piw_2">
+                    <div class="pro_img p_2">
+                      <div class="title_button">
+                        <h4>생산</h4>
+                        <div class="pro_button">
+                          <span class="material-symbols-outlined"> close </span>
+                        </div>
+                      </div>
+                      <div class="img_width"></div>
+                      <div class="pro_back">
+                        <div class="pro_bg"></div>
+                        <img src="img/bear_red.png" />
+                        <div class="pro_back_text">
+                          <p>
+                            위생, 공정 및 레시피 사양을 준수하기 위해 개별적인
+                            생산 단계를 엄격하게 제어하고 있습니다. 하리보는
+                            높은 수준의 법적 요건을 훨씬 뛰어 넘는 식품 안전
+                            표준 FSSC 22000에 따라 인증되었습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <img class="p_2_img" src="img/haribo_jelly.png" />
+                  </div>
+                  <div class="pro_img_wrap piw_3">
+                    <div class="pro_img p_3">
+                      <div class="title_button">
+                        <h4>물류</h4>
+                        <div class="pro_button">
+                          <span class="material-symbols-outlined"> close </span>
+                        </div>
+                      </div>
+                      <div class="img_width"></div>
+                      <div class="pro_back">
+                        <div class="pro_bg"></div>
+                        <img src="img/bear_red.png" />
+                        <div class="pro_back_text">
+                          <p>
+                            지능형 창고 물류를 통해 제과의 품질을 언제나 신뢰할
+                            수 있습니다. 고객이 하자없는 신선한 하리보 제품을
+                            받을 수 있도록 상품은 언제나 신속하게 공장을
+                            벗어납니다.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--con3끝-->
+        <div class="con4">
+          <div class="slide_bg"></div>
+          <div class="sticker">
+            <div class="sticker_left">
+              <img src="img/haribo_logo_black.png" />
+              <p>Kids and grown-ups love it so, the happy world of Haribo!</p>
+            </div>
+            <div class="sticker_right">
+              <img src="img/pack_Goldbaeren.png" />
+              <img src="img/bear-standard.png" />
+            </div>
+          </div>
+        </div>
+        <!--con4 끝-->
+        <div class="con5"></div>
+        <!--con5 끝-->
+        <div class="footer">
+          <div class="footer_inner">
+            <div class="f_text">
+              <div class="f_first">
+                <div class="f_logo">
+                  <a href=""><img src="img/haribo-logo.svg" /></a>
+                </div>
+              </div>
+              <div class="f_second">
+                <ul>
+                  <li><a href="">FAQ</a></li>
+                  <li><a href="">Legal Notice</a></li>
+                  <li><a href="">개인정보처리방침</a></li>
+                  <li><a href="">윤리강령</a></li>
+                </ul>
+              </div>
+              <div class="f_third">
+                <div class="sns_wrap">
+                  <a class="sns" href="https://www.facebook.com/HARIBO.kr">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 1024 1024"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M512 0C229.2 0 0 229.2 0 512c0 255.6 187.2 467.4 432 505.8V660H302V512h130V399.2C432 270.9 508.4 200 625.4 200c56 0 114.6 10 114.6 10v126h-64.6c-63.6 0-83.4 39.5-83.4 80v96h142l-22.7 148H592v357.8c244.8-38.4 432-250.2 432-505.8C1024 229.2 794.8 0 512 0z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a class="sns" href="https://www.instagram.com/haribo.korea/">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 39.6 39.9"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M19.8 3.6c5.3 0 5.9 0 8 .1 1.9.1 3 .4 3.7.7.9.4 1.6.8 2.3 1.5s1.1 1.4 1.5 2.3c.3.7.6 1.8.7 3.7.1 2.1.1 2.7.1 8.1s0 6-.1 8.1c-.1 1.9-.4 3-.7 3.7-.4.9-.8 1.6-1.5 2.3s-1.4 1.1-2.3 1.5c-.7.3-1.7.6-3.7.7-2.1.1-2.7.1-8 .1s-5.9 0-8-.1c-1.9-.1-3-.4-3.7-.7-.9-.4-1.6-.8-2.3-1.5s-1.1-1.4-1.5-2.3c-.2-.8-.5-1.8-.6-3.8-.1-2.1-.1-2.7-.1-8.1s0-6 .1-8.1c.1-1.9.4-3 .7-3.7.4-.9.8-1.6 1.5-2.3s1.4-1.1 2.3-1.5c.7-.3 1.7-.6 3.7-.7h7.9zm0-3.6c-5.4 0-6.1 0-8.2.1C9.5.2 8 .5 6.8 1c-1.3.5-2.4 1.2-3.5 2.3C2.2 4.4 1.5 5.5 1 6.8.5 8.1.2 9.5.1 11.6 0 13.9 0 14.5 0 20s0 6.1.1 8.2c.1 2.1.4 3.6.9 4.8.5 1.3 1.2 2.4 2.3 3.5 1.1 1.1 2.2 1.8 3.5 2.3 1.3.5 2.7.8 4.8.9 2.1.1 2.8.1 8.2.1s6.1 0 8.2-.1c2.1-.1 3.6-.4 4.8-.9 1.3-.5 2.4-1.2 3.5-2.3 1.1-1.1 1.8-2.2 2.3-3.5.5-1.3.8-2.7.9-4.8.1-2.1.1-2.8.1-8.2s0-6.1-.1-8.2c-.1-2.1-.4-3.6-.9-4.8-.5-1.3-1.2-2.4-2.3-3.5-1.1-1.1-2.2-1.8-3.5-2.3C31.5.7 30.1.4 28 .3 25.9 0 25.2 0 19.8 0zm0 9.7C14.2 9.7 9.6 14.3 9.6 20s4.6 10.3 10.2 10.3S30 25.6 30 20 25.4 9.7 19.8 9.7zm0 16.9c-3.6 0-6.6-3-6.6-6.7s3-6.7 6.6-6.7c3.6 0 6.6 3 6.6 6.7s-2.9 6.7-6.6 6.7zm13-17.3c0 1.3-1.1 2.4-2.4 2.4S28 10.6 28 9.3s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="copyright">
+              <p>Copyright © 2024 Haribo. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--wrap 끝(바로 위)-->
+  </body>
+</html>
