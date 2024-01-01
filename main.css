@@ -54,6 +54,7 @@ body {
   height: 0.2em;
   position: absolute;
   background-color: #fff;
+  text-shadow: 2px 2px 2px #111;
 }
 .bar:nth-of-type(1) {
   top: 0;
@@ -181,7 +182,7 @@ body {
 /**************container******************************/
 .con_wrap_wrap {
   width: 100%;
-  height: calc(100vh + 700px);
+  height: 700vh;
   max-height: 200vh;
   position: relative;
 }
