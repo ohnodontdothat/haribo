@@ -182,8 +182,8 @@ body {
 /**************container******************************/
 .con_wrap_wrap {
   width: 100%;
-  height: 700vh;
-  max-height: 200vh;
+  height: 250vh;
+  max-height: 250vh;
   position: relative;
 }
 .con_wrap_wrap > .bg_wrap {
@@ -410,20 +410,14 @@ body {
 .step_img img {
   width: 100%;
 }
-/* #card1 .step_img img {
-  -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='348' height='348' preserveAspectRatio='none'%3E%3Cpath d='M211.67 346.94c97.14-8.22 132.62-40.36 136.17-175.41S295.58 18.12 175.72 1.75 43.52 86.61 6.02 201.51s108.51 153.65 205.65 145.43z'/%3E%3C/svg%3E");
-  mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='348' height='348' preserveAspectRatio='none'%3E%3Cpath d='M211.67 346.94c97.14-8.22 132.62-40.36 136.17-175.41S295.58 18.12 175.72 1.75 43.52 86.61 6.02 201.51s108.51 153.65 205.65 145.43z'/%3E%3C/svg%3E");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-} */
-
+.step_img video {
+  width: 100%;
+}
 #card2 .step_text {
   transform: translateY(-3rem);
 }
 #card3 .step_text {
-  transform: translateY(-6rem);
+  transform: translateY(-4rem);
 }
 #card4 .step_text {
   transform: translateY(-9rem);
@@ -470,6 +464,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  transform: translateY(2rem);
+  opacity: 0;
+}
+.pro_img_wrap.on {
+  transform: translateY(0rem);
+  opacity: 1;
+  transition: 0.5s;
 }
 .piw_1 > img {
   width: 30%;
@@ -646,8 +647,89 @@ body {
 .con5 {
   width: 100%;
   height: 100vh;
-  margin: 80px auto;
+  margin: 80px auto 0;
+  background-color: #111;
 }
+.con5_inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.con5_left {
+  width: calc(100% / 3);
+  height: 100%;
+  background: url(img/con5_qna.webp) no-repeat center/ cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.con5_left h3 {
+  font-size: 4rem;
+  font-family: "BMJUA";
+}
+.con5_left p {
+  font-size: 1.1rem;
+  font-family: "BMJUA";
+}
+.con5_left a {
+  padding: 1rem 1.5rem;
+  color: #111;
+  border: 1px solid #111;
+  font-size: 1.1rem;
+  font-family: "BMJUA";
+}
+.con5_right {
+  width: calc(100% - calc(100% / 3));
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.con5_right img {
+  width: 100%;
+}
+.con5_down:nth-of-type(1) {
+  transform: translateY(-3rem);
+}
+.con5_down:last-child {
+  transform: translateY(-5rem);
+}
+.con5_down {
+  width: calc(100% / 3);
+  height: 100%;
+  position: relative;
+}
+.con5_up {
+  width: calc(100% / 3);
+  height: 100%;
+  position: relative;
+}
+.up_wrap_wrap {
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.down_wrap_wrap {
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  transform: translateY(-100%);
+}
+.up_wrap {
+  width: 100%;
+}
+.down_wrap {
+  width: 100%;
+}
+
 /*footer*/
 .footer {
   width: 100%;
@@ -661,14 +743,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 7rem;
+  align-items: center;
+  gap: 2rem;
 }
 .f_text {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5rem;
-  transform: translateY(4rem);
+  padding-top: 1rem;
 }
 .f_logo {
   width: 100%;
@@ -689,10 +772,12 @@ body {
   display: inline-block;
   -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' preserveAspectRatio='none'%3E%3Cpath d='M27.676 49.908c13.583-1.131 21.822-8.31 22.311-26.93C50.477 4.358 36.693-.987 23.11.144 9.527 1.274-1.16 14.174.101 27.915c1.26 13.742 13.992 23.124 27.575 21.993z'/%3E%3C/svg%3E");
   mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' preserveAspectRatio='none'%3E%3Cpath d='M27.676 49.908c13.583-1.131 21.822-8.31 22.311-26.93C50.477 4.358 36.693-.987 23.11.144 9.527 1.274-1.16 14.174.101 27.915c1.26 13.742 13.992 23.124 27.575 21.993z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: #940d06;
   mask-size: 80% 80%;
   mask-origin: center;
+  -webkit-mask-position: center;
   mask-position: center;
   transform-origin: center;
 }
@@ -706,6 +791,23 @@ body {
   padding: 26%;
   fill: #fff;
   stroke: transparent;
+}
+.cs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  gap: 3rem;
+  font-size: 1.1rem;
+}
+.cs p a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+}
+.cs p:hover > a {
+  text-decoration: underline;
 }
 .copyright {
   width: 100%;
