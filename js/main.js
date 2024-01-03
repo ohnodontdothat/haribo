@@ -161,36 +161,40 @@ $(function () {
   // }
 
   /*load event*/
+  let loaded = false;
   $(window).on("load", function () {
-    let line = -150;
+    if (!loaded) {
+      let line = -150;
 
-    if (
-      $(window).scrollTop() >= $("#container").offset().top &&
-      $(window).scrollTop() <= $(".cards_wrap").offset().top + line
-    ) {
-      $(window).scrollTop(start);
-      con1.classList.add("sticky");
-      wheelEvent(k);
-    } else if (
-      $(window).scrollTop() >= $(".con2").offset().top + line &&
-      $(window).scrollTop() <= $(".con3").offset().top + line
-    ) {
-      con1.classList.remove("sticky");
-      $(".card").fadeIn(500);
-    } else if (
-      $(window).scrollTop() >= $(".con3").offset().top + line &&
-      $(window).scrollTop() <= $(".con4").offset().top + line
-    ) {
-      if ($(window).scrollTop() >= $(".piw_1").offset().top + line) {
-        $(".piw_1").addClass("on");
-      }
-      if ($(window).scrollTop() >= $(".piw_1").offset().top + 60) {
-        $(".piw_2").addClass("on");
-        setTimeout(function () {
-          $(".piw_3").addClass("on");
-        }, 500);
+      if (
+        $(window).scrollTop() >= $("#container").offset().top &&
+        $(window).scrollTop() <= $(".cards_wrap").offset().top + line
+      ) {
+        $(window).scrollTop(start);
+        con1.classList.add("sticky");
+        wheelEvent(k);
+      } else if (
+        $(window).scrollTop() >= $(".con2").offset().top + line &&
+        $(window).scrollTop() <= $(".con3").offset().top + line
+      ) {
+        con1.classList.remove("sticky");
+        $(".card").fadeIn(500);
+      } else if (
+        $(window).scrollTop() >= $(".con3").offset().top + line &&
+        $(window).scrollTop() <= $(".con4").offset().top + line
+      ) {
+        if ($(window).scrollTop() >= $(".piw_1").offset().top + line) {
+          $(".piw_1").addClass("on");
+        }
+        if ($(window).scrollTop() >= $(".piw_1").offset().top + 60) {
+          $(".piw_2").addClass("on");
+          setTimeout(function () {
+            $(".piw_3").addClass("on");
+          }, 500);
+        }
       }
     }
+    loaded = true;
   });
   let wheelEvent = function () {
     /*wheel event*/
