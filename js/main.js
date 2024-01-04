@@ -1,9 +1,8 @@
 $(function () {
   let i = 0;
-  // let k = 0;
+  let k = 0;
   let start = $("#container").offset().top;
   let con1 = document.querySelector(".con_wrap");
-  let section = 100;
 
   $(".card").fadeOut();
 
@@ -51,7 +50,9 @@ $(function () {
     }
   });
 
-  /*visual*/ /*visual text effext*/ var spans = $("h1 span");
+  /*visual*/
+  /*visual text effect*/
+  var spans = $("h1 span");
   let gummy = $(".gummy");
 
   function firstAnimation() {
@@ -63,10 +64,7 @@ $(function () {
         {
           duration: 1000,
           easing: "easeOutExpo",
-          start: function () {
-            // $(spans[0]).removeClass("size-lg");
-            // $(spans[0]).addClass("size-md");
-          },
+          start: function () {},
           complete: function () {
             secondAnimation();
             $(spans[0]).removeClass("size-lg").addClass("size-md");
@@ -131,7 +129,6 @@ $(function () {
           duration: 1000,
           easing: "easeOutExpo",
           complete: function () {
-            // $(spans[2]).removeClass("size-md").addClass("size-sm");
             $(spans[2]).removeClass("size-md").addClass("size-sm");
             $(spans[2]).stop().css({ transform: "translateY(-200%)" });
             fifthAnimation();
@@ -149,16 +146,200 @@ $(function () {
 
   firstAnimation();
 
-  // /*scorll값에 따른 효과 */
-  // let lastScrollY = 0;
-  // $(".step").css({ height: "" });
-  // function handleScroll() {
-  //   const currentScrollY = window.scrollY;
-  //   const delta = currentScrollY - lastScrollY;
+  if ($(window).width() < 1320) {
+    /*visual*/
+    /*visual text effext*/
+    var spans = $("h1 span");
+    let gummy = $(".gummy");
 
-  //   // 이전 스크롤 값 업데이트
-  //   lastScrollY = currentScrollY;
-  // }
+    function firstAnimation() {
+      $(spans).addClass("size-lg");
+      $(spans[0])
+        .css({ opacity: 1, display: "block", transform: "scale(1.2)" })
+        .animate(
+          { scale: 1 },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            start: function () {},
+            complete: function () {
+              secondAnimation();
+              $(spans[0]).removeClass("size-lg").addClass("size-md");
+              $(spans[0]).stop().css({ transform: "translateY(-120%)" });
+            },
+          }
+        );
+    }
+
+    function secondAnimation() {
+      $(spans[1])
+        .css({ opacity: 1, display: "block", transform: "scale(1.2)" })
+        .addClass("size-lg")
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[0]).removeClass("size-md").addClass("size-sm");
+              $(spans[1]).removeClass("size-lg").addClass("size-md");
+              $(spans[0]).stop().css({ transform: "translateY(-200%)" });
+              $(spans[1]).stop().css({ transform: "translateY(-120%)" });
+              thirdAnimation();
+            },
+          }
+        );
+    }
+    function thirdAnimation() {
+      $(spans[2])
+        .css({
+          opacity: 1,
+          display: "block",
+          transform: "scale(1.2)",
+        })
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[3]).css({ fontSize: "160px" });
+              $(spans[1]).removeClass("size-md").addClass("size-sm");
+              $(spans[2]).removeClass("size-lg").addClass("size-md");
+              $(spans[1]).stop().css({ transform: "translateY(-200%)" });
+              $(spans[2]).stop().css({ transform: "translateY(-110%)" });
+              forthAnimation();
+            },
+          }
+        );
+    }
+    function forthAnimation() {
+      $(spans[3])
+        .css({
+          opacity: 1,
+          display: "block",
+          transform: "scale(1.2)",
+        })
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[2]).removeClass("size-md").addClass("size-sm");
+              $(spans[2]).stop().css({ transform: "translateY(-200%)" });
+              fifthAnimation();
+            },
+          }
+        );
+    }
+    function fifthAnimation() {
+      $(spans[0]).stop().animate({ opacity: "0" }, 2000);
+      $(spans[1]).stop().animate({ opacity: "0" }, 2000);
+      $(spans[2]).stop().animate({ opacity: "0" }, 2000);
+      $(spans[3]).addClass("on");
+      $(gummy).addClass("on");
+    }
+
+    firstAnimation();
+  }
+  if ($(window).width() < 780) {
+    /*visual*/
+    /*visual text effext*/
+    var spans = $("h1 span");
+    let gummy = $(".gummy");
+
+    function firstAnimation() {
+      $(spans).addClass("size-lg");
+      $(spans[0])
+        .css({ opacity: 1, display: "block", transform: "scale(1.2)" })
+        .animate(
+          { scale: 1 },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            start: function () {},
+            complete: function () {
+              secondAnimation();
+              $(spans[0]).removeClass("size-lg").addClass("size-md");
+              $(spans[0]).stop().css({ transform: "translateY(-120%)" });
+            },
+          }
+        );
+    }
+
+    function secondAnimation() {
+      $(spans[1])
+        .css({ opacity: 1, display: "block", transform: "scale(1.2)" })
+        .addClass("size-lg")
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[0]).removeClass("size-md").addClass("size-sm");
+              $(spans[1]).removeClass("size-lg").addClass("size-md");
+              $(spans[0]).stop().css({ transform: "translateY(-200%)" });
+              $(spans[1]).stop().css({ transform: "translateY(-120%)" });
+              thirdAnimation();
+            },
+          }
+        );
+    }
+    function thirdAnimation() {
+      $(spans[2])
+        .css({
+          opacity: 1,
+          display: "block",
+          transform: "scale(1.2)",
+        })
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[3]).css({ fontSize: "90px" });
+              $(spans[1]).removeClass("size-md").addClass("size-sm");
+              $(spans[2]).removeClass("size-lg").addClass("size-md");
+              $(spans[1]).stop().css({ transform: "translateY(-200%)" });
+              $(spans[2]).stop().css({ transform: "translateY(-110%)" });
+              forthAnimation();
+            },
+          }
+        );
+    }
+    function forthAnimation() {
+      $(spans[3])
+        .css({
+          opacity: 1,
+          display: "block",
+          transform: "scale(1.2)",
+        })
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[2]).removeClass("size-md").addClass("size-sm");
+              $(spans[2]).stop().css({ transform: "translateY(-200%)" });
+              fifthAnimation();
+            },
+          }
+        );
+    }
+    function fifthAnimation() {
+      $(spans[0]).stop().animate({ opacity: "0" }, 2000);
+      $(spans[1]).stop().animate({ opacity: "0" }, 2000);
+      $(spans[2]).stop().animate({ opacity: "0" }, 2000);
+      $(spans[3]).addClass("on");
+      $(gummy).addClass("on");
+    }
+
+    firstAnimation();
+  }
 
   /*load event*/
   let loaded = false;
@@ -172,7 +353,7 @@ $(function () {
       ) {
         $(window).scrollTop(start);
         con1.classList.add("sticky");
-        wheelEvent(k);
+        wheelEvent();
       } else if (
         $(window).scrollTop() >= $(".con2").offset().top + line &&
         $(window).scrollTop() <= $(".con3").offset().top + line
@@ -194,13 +375,18 @@ $(function () {
         }
       }
     }
+
     loaded = true;
   });
+
+  /*wheel event*/
   let wheelEvent = function () {
-    /*wheel event*/
-    let k = 0;
+    console.log(k);
     let isScrolling = false;
-    $(window).on("wheel", function (event) {
+
+    $(".con_wrap_wrap").off("wheel");
+
+    $(".con_wrap_wrap").on("wheel", function (event) {
       if (isScrolling) {
         return;
       }
@@ -285,10 +471,8 @@ $(function () {
                   $(".txt:last-child").remove(),
                     setTimeout(function () {
                       $(".text_wrap").css({ top: "0" });
+                      newText.prependTo(".text_wrap");
                     }, 100);
-                  setTimeout(function () {
-                    newText.prependTo(".text_wrap");
-                  }, 100);
                 },
               }
             );
@@ -321,7 +505,6 @@ $(function () {
       setTimeout(function () {
         isScrolling = false;
       }, 1000);
-      // con1.classList.remove("sticky");
     });
   };
   wheelEvent();
@@ -332,19 +515,17 @@ $(function () {
   /*scroll event*/
   $(window).on("scroll", function () {
     let line = -150;
-    $(".visual").off(wheelEvent);
+
     if (
       $(window).scrollTop() >= $("#container").offset().top &&
       $(window).scrollTop() <= $(".cards_wrap").offset().top + line
     ) {
       con1.classList.add("sticky");
-      wheelEvent(k);
     } else if (
       $(window).scrollTop() >= $(".con2").offset().top + line &&
       $(window).scrollTop() <= $(".con3").offset().top + line
     ) {
       con1.classList.remove("sticky");
-      $(".con2").off(wheelEvent);
       $(".card").fadeIn(500);
     } else if (
       $(window).scrollTop() >= $(".con3").offset().top + line &&
@@ -366,19 +547,19 @@ $(function () {
   let z = 0;
   $(".pro_back").fadeOut();
   $(".pro_img").on("click", function () {
-    let i = $(this)
-      .closest(".procedure")
-      .find(".pro_img")
-      .index($(this).closest(".pro_img"));
+    let procedureClass =
+      $(window).width() < 780 ? ".procedure_wrap_1" : ".procedure_wrap";
+    let i = $(this).closest(procedureClass).find(".pro_img").index(this);
+    console.log(i);
     if (z == 0) {
-      $(".pro_button").removeClass("on");
-      $(".pro_button").eq(i).addClass("on");
-      $(".pro_back").fadeOut();
-      $(".pro_back").eq(i).stop().fadeIn(500);
+      $(".pro_button", procedureClass).removeClass("on");
+      $(".pro_button", procedureClass).eq(i).addClass("on");
+      $(".pro_back", procedureClass).fadeOut();
+      $(".pro_back", procedureClass).eq(i).stop().fadeIn(500);
       z = 1;
     } else {
-      $(".pro_button").removeClass("on");
-      $(".pro_back").eq(i).stop().fadeOut(500);
+      $(".pro_button", procedureClass).removeClass("on");
+      $(".pro_back", procedureClass).eq(i).stop().fadeOut(500);
       z = 0;
     }
   });
