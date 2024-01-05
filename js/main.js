@@ -3,52 +3,52 @@ $(function () {
   let k = 0;
   let start = $("#container").offset().top;
   let con1 = document.querySelector(".con_wrap");
-
+  let this_scroll = $(window).scrollTop();
   $(".card").fadeOut();
 
-  /*bar효과*/
-  $(".bars").on("click", function () {
-    console.log(i);
-    if (i == 0) {
-      $(".bar:nth-of-type(2)").hide();
-      $(".bar:nth-of-type(1)").animate(
-        {
-          top: "50%",
-          rotate: "45deg",
-        },
-        60
-      );
-      $(".bar:nth-of-type(3)").animate(
-        {
-          top: "50%",
-          rotate: "-45deg",
-        },
-        60
-      );
-      $(".side_menu").animate({ left: "0%", zIndex: "95" }, 600);
-      $(".bar").addClass("on");
-      i = 1;
-    } else {
-      $(".bar:nth-of-type(1)").animate(
-        {
-          top: "0%",
-          rotate: "0deg",
-        },
-        60
-      );
-      $(".bar:nth-of-type(3)").animate(
-        {
-          top: "100%",
-          rotate: "0deg",
-        },
-        60
-      );
-      $(".bar:nth-of-type(2)").show();
-      $(".side_menu").animate({ left: "100%" }, 600);
-      $(".bar").removeClass("on");
-      i = 0;
-    }
-  });
+  // /*bar효과*/
+  // $(".bars").on("click", function () {
+  //   console.log(i);
+  //   if (i == 0) {
+  //     $(".bar:nth-of-type(2)").hide();
+  //     $(".bar:nth-of-type(1)").animate(
+  //       {
+  //         top: "50%",
+  //         rotate: "45deg",
+  //       },
+  //       60
+  //     );
+  //     $(".bar:nth-of-type(3)").animate(
+  //       {
+  //         top: "50%",
+  //         rotate: "-45deg",
+  //       },
+  //       60
+  //     );
+  //     $(".side_menu").animate({ left: "0%", zIndex: "95" }, 600);
+  //     $(".bar").addClass("on");
+  //     i = 1;
+  //   } else {
+  //     $(".bar:nth-of-type(1)").animate(
+  //       {
+  //         top: "0%",
+  //         rotate: "0deg",
+  //       },
+  //       60
+  //     );
+  //     $(".bar:nth-of-type(3)").animate(
+  //       {
+  //         top: "100%",
+  //         rotate: "0deg",
+  //       },
+  //       60
+  //     );
+  //     $(".bar:nth-of-type(2)").show();
+  //     $(".side_menu").animate({ left: "100%" }, 600);
+  //     $(".bar").removeClass("on");
+  //     i = 0;
+  //   }
+  // });
 
   /*visual*/
   /*visual text effect*/
@@ -146,11 +146,9 @@ $(function () {
 
   firstAnimation();
 
-  if ($(window).width() < 1320) {
+  if ($(window).width() < 1320 && $(window).width() > 781) {
     /*visual*/
     /*visual text effext*/
-    var spans = $("h1 span");
-    let gummy = $(".gummy");
 
     function firstAnimation() {
       $(spans).addClass("size-lg");
@@ -203,7 +201,7 @@ $(function () {
             duration: 1000,
             easing: "easeOutExpo",
             complete: function () {
-              $(spans[3]).css({ fontSize: "160px" });
+              $(spans[3]).css({ fontSize: "8rem" });
               $(spans[1]).removeClass("size-md").addClass("size-sm");
               $(spans[2]).removeClass("size-lg").addClass("size-md");
               $(spans[1]).stop().css({ transform: "translateY(-200%)" });
@@ -243,11 +241,9 @@ $(function () {
 
     firstAnimation();
   }
-  if ($(window).width() < 780) {
+  if ($(window).width() < 780 && $(window).width() > 432) {
     /*visual*/
     /*visual text effext*/
-    var spans = $("h1 span");
-    let gummy = $(".gummy");
 
     function firstAnimation() {
       $(spans).addClass("size-lg");
@@ -334,6 +330,101 @@ $(function () {
       $(spans[0]).stop().animate({ opacity: "0" }, 2000);
       $(spans[1]).stop().animate({ opacity: "0" }, 2000);
       $(spans[2]).stop().animate({ opacity: "0" }, 2000);
+      $(spans[3]).addClass("on");
+      $(gummy).addClass("on");
+    }
+
+    firstAnimation();
+  }
+
+  if ($(window).width() < 431) {
+    /*visual*/
+    /*visual text effext*/
+
+    function firstAnimation() {
+      $(spans).addClass("size-lg");
+      $(spans[0])
+        .css({ opacity: 1, display: "block", transform: "scale(1.1)" })
+        .animate(
+          { scale: 1 },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            start: function () {},
+            complete: function () {
+              secondAnimation();
+              $(spans[0]).removeClass("size-lg").addClass("size-md");
+              $(spans[0]).stop().css({ transform: "translateY(-270%)" });
+            },
+          }
+        );
+    }
+
+    function secondAnimation() {
+      $(spans[1])
+        .css({ opacity: 1, display: "block", transform: "scale(1.1)" })
+        .addClass("size-lg")
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[0]).removeClass("size-md").addClass("size-sm");
+              $(spans[1]).removeClass("size-lg").addClass("size-md");
+              $(spans[0]).stop().css({ transform: "translateY(-350%)" });
+              $(spans[1]).stop().css({ transform: "translateY(-270%)" });
+              thirdAnimation();
+            },
+          }
+        );
+    }
+
+    function thirdAnimation() {
+      $(spans[2])
+        .css({
+          opacity: 1,
+          display: "block",
+          transform: "scale(1.1)",
+        })
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[3]).css({ fontSize: "50px" });
+              $(spans[1]).removeClass("size-md").addClass("size-sm");
+              $(spans[2]).removeClass("size-lg").addClass("size-md");
+              $(spans[1]).stop().css({ transform: "translateY(-350%)" });
+              $(spans[2]).stop().css({ transform: "translateY(-260%)" });
+              forthAnimation();
+            },
+          }
+        );
+    }
+
+    function forthAnimation() {
+      $(spans[3])
+        .css({
+          opacity: 1,
+          display: "block",
+          transform: "scale(1.1)",
+        })
+        .animate(
+          { scale: "1" },
+          {
+            duration: 1000,
+            easing: "easeOutExpo",
+            complete: function () {
+              $(spans[2]).removeClass("size-md").addClass("size-sm");
+              $(spans[2]).stop().css({ transform: "translateY(-350%)" });
+              fifthAnimation();
+            },
+          }
+        );
+    }
+    function fifthAnimation() {
       $(spans[3]).addClass("on");
       $(gummy).addClass("on");
     }
@@ -521,6 +612,10 @@ $(function () {
       $(window).scrollTop() <= $(".cards_wrap").offset().top + line
     ) {
       con1.classList.add("sticky");
+      if ($(window).width() < 431) {
+        scroll();
+        $(window).off("wheel".wheelEvent);
+      }
     } else if (
       $(window).scrollTop() >= $(".con2").offset().top + line &&
       $(window).scrollTop() <= $(".con3").offset().top + line
@@ -531,6 +626,7 @@ $(function () {
       $(window).scrollTop() >= $(".con3").offset().top + line &&
       $(window).scrollTop() <= $(".con4").offset().top + line
     ) {
+      $(".con3").addClass("on");
       if ($(window).scrollTop() >= $(".piw_1").offset().top + line) {
         $(".piw_1").addClass("on");
       }
@@ -564,71 +660,237 @@ $(function () {
     }
   });
 
-  /*con5 무한 캐러셀 애니메이션*/
-  let carousel_1 = function () {
-    function animateUpWrap() {
-      $(".up_wrap_wrap").animate(
-        {
-          top: "-195%",
-        },
-        {
-          duration: 5000,
-          complete: function () {
-            $(".up_wrap:first-child").appendTo(".up_wrap_wrap");
-            $(".up_wrap_wrap").css({ top: "0%" });
+  if ($(window).width() < 431) {
+    /*con5 무한 캐러셀 애니메이션*/
+    let carousel_1 = function () {
+      function animateUpWrap() {
+        $(".up_wrap_wrap").animate(
+          {
+            top: "-110%",
           },
-        }
-      );
-    }
+          {
+            duration: 5000,
+            complete: function () {
+              $(".up_wrap:first-child").appendTo(".up_wrap_wrap");
+              $(".up_wrap_wrap").css({ top: "0%" });
+            },
+          }
+        );
+      }
 
-    animateUpWrap();
+      animateUpWrap();
 
-    setInterval(animateUpWrap, 5000);
-  };
+      setInterval(animateUpWrap, 5000);
+    };
 
-  let carousel_2 = function () {
-    function animateDownWrap() {
-      $(".down_1").animate(
-        {
-          top: "195%",
-        },
-        {
-          duration: 5000,
-          complete: function () {
-            $(".down_wrap_1:last-child").prependTo(".down_1");
-            $(".down_1").css({ top: "0%" });
+    let carousel_2 = function () {
+      function animateDownWrap() {
+        $(".down_1").animate(
+          {
+            top: "110%",
           },
-        }
-      );
-    }
+          {
+            duration: 5000,
+            complete: function () {
+              $(".down_wrap_1:last-child").prependTo(".down_1");
+              $(".down_1").css({ top: "0%" });
+            },
+          }
+        );
+      }
 
-    animateDownWrap();
+      animateDownWrap();
 
-    setInterval(animateDownWrap, 5000);
-  };
+      setInterval(animateDownWrap, 5000);
+    };
 
-  let carousel_3 = function () {
-    function animateDownWrap_1() {
-      $(".down_2").animate(
-        {
-          top: "195%",
-        },
-        {
-          duration: 5000,
-          complete: function () {
-            $(".down_wrap_2:last-child").prependTo(".down_2");
-            $(".down_2").css({ top: "0%" });
+    let carousel_3 = function () {
+      function animateDownWrap_1() {
+        $(".down_2").animate(
+          {
+            top: "110%",
           },
+          {
+            duration: 5000,
+            complete: function () {
+              $(".down_wrap_2:last-child").prependTo(".down_2");
+              $(".down_2").css({ top: "0%" });
+            },
+          }
+        );
+      }
+
+      animateDownWrap_1();
+
+      setInterval(animateDownWrap_1, 5000);
+    };
+
+    carousel_1();
+    carousel_2();
+    carousel_3();
+  } else {
+    /*con5 무한 캐러셀 애니메이션*/
+    let carousel_1 = function () {
+      function animateUpWrap() {
+        $(".up_wrap_wrap").animate(
+          {
+            top: "-195%",
+          },
+          {
+            duration: 5000,
+            complete: function () {
+              $(".up_wrap:first-child").appendTo(".up_wrap_wrap");
+              $(".up_wrap_wrap").css({ top: "0%" });
+            },
+          }
+        );
+      }
+
+      animateUpWrap();
+
+      setInterval(animateUpWrap, 5000);
+    };
+
+    let carousel_2 = function () {
+      function animateDownWrap() {
+        $(".down_1").animate(
+          {
+            top: "195%",
+          },
+          {
+            duration: 5000,
+            complete: function () {
+              $(".down_wrap_1:last-child").prependTo(".down_1");
+              $(".down_1").css({ top: "0%" });
+            },
+          }
+        );
+      }
+
+      animateDownWrap();
+
+      setInterval(animateDownWrap, 5000);
+    };
+
+    let carousel_3 = function () {
+      function animateDownWrap_1() {
+        $(".down_2").animate(
+          {
+            top: "195%",
+          },
+          {
+            duration: 5000,
+            complete: function () {
+              $(".down_wrap_2:last-child").prependTo(".down_2");
+              $(".down_2").css({ top: "0%" });
+            },
+          }
+        );
+      }
+
+      animateDownWrap_1();
+
+      setInterval(animateDownWrap_1, 5000);
+    };
+
+    carousel_1();
+    carousel_2();
+    carousel_3();
+  }
+
+  let scroll = function () {
+    $(".con_wrap_wrap").on("scroll", function (event) {
+      let isScrolling = false;
+      if (isScrolling) {
+        return;
+      }
+      isScrolling = true;
+      if ($(".con_wrap_wrap").scrollTop() > this_scroll) {
+        if (k == total) {
+          k = 0;
+        } else {
+          k++;
         }
-      );
-    }
+        $(".text_wrap")
+          .stop()
+          .animate(
+            {
+              top: newTopValue,
+            },
+            function () {
+              $(".txt:first-child").appendTo(".text_wrap");
+              $(".text_wrap").css({ top: "0" });
+            }
+          );
+        $(".sm_wrap")
+          .stop()
+          .animate(
+            {
+              left: newWidth,
+            },
+            function () {
+              $(".sm_jelly:first-child").appendTo(".sm_wrap");
+              $(".sm_wrap").css({ left: "0" });
+            }
+          );
+      } else if ($(".con_wrap_wrap").scrollTop() < this_scroll) {
+        if (k == 0) {
+          k = total;
+        } else {
+          k--;
+        }
+        // $currentIndex = 0;
+        let newText = $(".txt:last-child").clone();
+        let newSm = $(".sm_jelly:last-child").clone();
 
-    animateDownWrap_1();
+        $(".txt:last-child").fadeOut(100, function () {
+          $(".text_wrap")
+            .stop()
+            .animate(
+              {
+                top: csHeight,
+              },
+              {
+                duration: 500,
+                complete: function () {
+                  $(".txt:last-child").remove(),
+                    setTimeout(function () {
+                      $(".text_wrap").css({ top: "0" });
+                      newText.prependTo(".text_wrap");
+                    }, 100);
+                },
+              }
+            );
+        });
+        $(".sm_jelly:last-child").fadeOut(100, function () {
+          $(".sm_wrap")
+            .stop()
+            .animate(
+              {
+                left: jWidth,
+              },
+              {
+                duration: 700,
+                complete: function () {
+                  $(".sm_jelly:last-child").remove();
+                  $(".sm_wrap").css({ left: "0" });
+                  newSm.prependTo(".sm_wrap");
+                },
+              }
+            );
+        });
+      }
+      $(".pack").removeClass("on");
+      $(".pack").eq(k).addClass("on");
+      $(".jelly").removeClass("on");
+      $(".jelly").eq(k).addClass("on");
+      $(".bg").removeClass("on");
+      $(".bg").eq(k).addClass("on");
 
-    setInterval(animateDownWrap_1, 5000);
+      setTimeout(function () {
+        isScrolling = false;
+      }, 1000);
+    });
   };
-
-  carousel_1();
-  carousel_2();
-  carousel_3();
+  scroll();
 });
