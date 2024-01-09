@@ -606,16 +606,11 @@ $(function () {
   /*scroll event*/
   $(window).on("scroll", function () {
     let line = -150;
-
     if (
       $(window).scrollTop() >= $("#container").offset().top &&
       $(window).scrollTop() <= $(".cards_wrap").offset().top + line
     ) {
       con1.classList.add("sticky");
-      if ($(window).width() < 431) {
-        scroll();
-        $(window).off("wheel".wheelEvent);
-      }
     } else if (
       $(window).scrollTop() >= $(".con2").offset().top + line &&
       $(window).scrollTop() <= $(".con3").offset().top + line
@@ -638,6 +633,41 @@ $(function () {
       }
     }
   });
+
+  /*모바일*/
+  if ($(window).width() < 431) {
+    $(window).on("scroll", function () {
+      let line = -150;
+      if (
+        $(window).scrollTop() >= $("#container").offset().top &&
+        $(window).scrollTop() <= $(".cards_wrap").offset().top + line
+      ) {
+        con1.classList.add("sticky");
+        scroll();
+        $(window).off("wheel".wheelEvent);
+      } else if (
+        $(window).scrollTop() >= $(".con2").offset().top + line &&
+        $(window).scrollTop() <= $(".con3").offset().top + line
+      ) {
+        con1.classList.remove("sticky");
+        $(".card").fadeIn(500);
+      } else if (
+        $(window).scrollTop() >= $(".con3").offset().top + line &&
+        $(window).scrollTop() <= $(".con4").offset().top + line
+      ) {
+        $(".con3").addClass("on");
+        if ($(window).scrollTop() >= $(".piw_1").offset().top + line) {
+          $(".piw_1").addClass("on");
+        }
+        if ($(window).scrollTop() >= $(".piw_1").offset().top + 60) {
+          $(".piw_2").addClass("on");
+          setTimeout(function () {
+            $(".piw_3").addClass("on");
+          }, 500);
+        }
+      }
+    });
+  }
 
   /*con3 카드 효과*/
   let z = 0;
