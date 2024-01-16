@@ -6,50 +6,6 @@ $(function () {
   let this_scroll = $(window).scrollTop();
   $(".card").fadeOut();
 
-  // /*bar효과*/
-  // $(".bars").on("click", function () {
-  //   console.log(i);
-  //   if (i == 0) {
-  //     $(".bar:nth-of-type(2)").hide();
-  //     $(".bar:nth-of-type(1)").animate(
-  //       {
-  //         top: "50%",
-  //         rotate: "45deg",
-  //       },
-  //       60
-  //     );
-  //     $(".bar:nth-of-type(3)").animate(
-  //       {
-  //         top: "50%",
-  //         rotate: "-45deg",
-  //       },
-  //       60
-  //     );
-  //     $(".side_menu").animate({ left: "0%", zIndex: "95" }, 600);
-  //     $(".bar").addClass("on");
-  //     i = 1;
-  //   } else {
-  //     $(".bar:nth-of-type(1)").animate(
-  //       {
-  //         top: "0%",
-  //         rotate: "0deg",
-  //       },
-  //       60
-  //     );
-  //     $(".bar:nth-of-type(3)").animate(
-  //       {
-  //         top: "100%",
-  //         rotate: "0deg",
-  //       },
-  //       60
-  //     );
-  //     $(".bar:nth-of-type(2)").show();
-  //     $(".side_menu").animate({ left: "100%" }, 600);
-  //     $(".bar").removeClass("on");
-  //     i = 0;
-  //   }
-  // });
-
   /*visual*/
   /*visual text effect*/
   var spans = $("h1 span");
@@ -372,8 +328,8 @@ $(function () {
             complete: function () {
               $(spans[0]).removeClass("size-md").addClass("size-sm");
               $(spans[1]).removeClass("size-lg").addClass("size-md");
-              $(spans[0]).stop().css({ transform: "translateY(-350%)" });
-              $(spans[1]).stop().css({ transform: "translateY(-270%)" });
+              $(spans[0]).stop().css({ transform: "translateY(-250%)" });
+              $(spans[1]).stop().css({ transform: "translateY(-170%)" });
               thirdAnimation();
             },
           }
@@ -393,11 +349,11 @@ $(function () {
             duration: 1000,
             easing: "easeOutExpo",
             complete: function () {
-              $(spans[3]).css({ fontSize: "50px" });
+              $(spans[3]).css({ fontSize: "55px" });
               $(spans[1]).removeClass("size-md").addClass("size-sm");
               $(spans[2]).removeClass("size-lg").addClass("size-md");
-              $(spans[1]).stop().css({ transform: "translateY(-350%)" });
-              $(spans[2]).stop().css({ transform: "translateY(-260%)" });
+              $(spans[1]).stop().css({ transform: "translateY(-250%)" });
+              $(spans[2]).stop().css({ transform: "translateY(-170%)" });
               forthAnimation();
             },
           }
@@ -418,7 +374,7 @@ $(function () {
             easing: "easeOutExpo",
             complete: function () {
               $(spans[2]).removeClass("size-md").addClass("size-sm");
-              $(spans[2]).stop().css({ transform: "translateY(-350%)" });
+              $(spans[2]).stop().css({ transform: "translateY(-250%)" });
               fifthAnimation();
             },
           }
@@ -455,6 +411,7 @@ $(function () {
         $(window).scrollTop() >= $(".con3").offset().top + line &&
         $(window).scrollTop() <= $(".con4").offset().top + line
       ) {
+        $(".con3").addClass("on");
         if ($(window).scrollTop() >= $(".piw_1").offset().top + line) {
           $(".piw_1").addClass("on");
         }
@@ -829,13 +786,22 @@ $(function () {
   }
 
   let scroll = function () {
+    let scrollLimit = 10;
     $(".con_wrap_wrap").on("scroll", function (event) {
+      let currentScroll = $(".con_wrap_wrap").scrollTop();
+
       let isScrolling = false;
       if (isScrolling) {
         return;
       }
       isScrolling = true;
-      if ($(".con_wrap_wrap").scrollTop() > this_scroll) {
+
+      if (Math.abs(currentScroll - this_scroll) < scrollLimit) {
+        isScrolling = false;
+        return;
+      }
+
+      if (currentScroll > this_scroll) {
         if (k == total) {
           k = 0;
         } else {
@@ -863,7 +829,7 @@ $(function () {
               $(".sm_wrap").css({ left: "0" });
             }
           );
-      } else if ($(".con_wrap_wrap").scrollTop() < this_scroll) {
+      } else if (currentScroll < this_scroll) {
         if (k == 0) {
           k = total;
         } else {

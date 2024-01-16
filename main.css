@@ -31,82 +31,7 @@ body {
   font-weight: normal;
   font-style: normal;
 }
-/***********************************************/
-/*hamberger bars*/
-.bars {
-  width: 2em;
-  height: 1em;
-  cursor: pointer;
-  position: fixed;
-  right: 1.5%;
-  top: 1.5%;
-  z-index: 99;
-}
-.bars_wrap {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 99;
-  transform: translateY(-1%);
-}
-.bar {
-  width: 100%;
-  height: 0.2em;
-  position: absolute;
-  background-color: #fff;
-  text-shadow: 2px 2px 2px #111;
-}
-.bar:nth-of-type(1) {
-  top: 0;
-}
-.bar:nth-of-type(2) {
-  top: 50%;
-}
-.bar:nth-of-type(3) {
-  top: 100%;
-}
-.bar.on {
-  background-color: #fff !important;
-}
-/*side menu*/
-.side_menu {
-  width: calc(100% - 17px);
-  height: 100vh;
-  margin: 0px auto;
-  background-color: #111;
-  position: fixed;
-  left: 100%;
-  top: 0;
-}
-.side_inner {
-  width: 100%;
-  height: 100%;
-  color: white;
-  margin: 0px auto;
-  display: flex;
-  flex-direction: column;
-}
-.side_menu .menu {
-  font-size: 4.79vw;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.side_menu .menu span {
-  font-size: 1.56vw;
-  margin-right: 0.68vw;
-  margin-top: 0.52vw;
-}
-.side_menu .menu li {
-  margin: 1.25vw;
-  display: flex;
-  cursor: pointer;
-}
-.side_menu .menu p:hover {
-  text-decoration: line-through;
-  text-decoration-thickness: 0.05em;
-}
+
 /****************visual****************************/
 .splash {
   width: 100%;
@@ -198,6 +123,7 @@ body {
   position: static;
 }
 .con_wrap.sticky {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -1528,6 +1454,7 @@ body {
     width: 90%;
     margin: 0px auto;
   }
+
   /*con4*/
   .con4 {
     height: auto;
@@ -1625,11 +1552,11 @@ body {
     top: 45%;
   }
   .splash h1 span.size-lg {
-    font-size: 25px;
+    font-size: 40px;
     line-height: 50px;
   }
   .splash h1 span.size-md {
-    font-size: 23px;
+    font-size: 30px;
     line-height: 40px;
     transition: 0.5s;
   }
@@ -1695,12 +1622,16 @@ body {
     font-family: "ErasITC-Bold", cursive;
     text-align: left;
   }
-  .text_cola h3 {
-    font-size: 40px;
+  .text_cola h3,
+  .text_grapes h3 {
+    font-size: 45px;
   }
   .txt p {
     font-size: 0.8rem;
     margin: 2rem 0rem;
+  }
+  .txt br {
+    display: none;
   }
   .pack_wrap {
     width: calc(100% / 1.3);
@@ -1777,6 +1708,9 @@ body {
   .pd_text {
     width: 90%;
     margin: 0px auto;
+  }
+  .pd_text > p {
+    font-size: 0.9rem;
   }
   .con3_inner {
     width: 100%;
