@@ -1289,7 +1289,7 @@ body {
     font-size: 1rem;
   }
 }
-@media (max-width: 780px) and (min-width: 432px) {
+@media (max-width: 780px) and (min-width: 485px) {
   .side_menu {
     width: 100%;
   }
@@ -1335,6 +1335,12 @@ body {
     transition-delay: 0.5s;
   }
   /*con_wrap_wrap*/
+  .con_wrap_wrap {
+    height: 250vh;
+  }
+  .con1_wrap {
+    padding: 0;
+  }
   .carousel {
     display: flex;
     flex-direction: column;
@@ -1354,6 +1360,9 @@ body {
   }
   .text_wrap {
     width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0px auto;
     background-color: transparent;
     padding-top: 2rem;
   }
@@ -1362,8 +1371,10 @@ body {
     font-family: "ErasITC-Bold", cursive;
     text-align: left;
   }
-  .text_goldbaren h3 {
-    font-size: 35px !important;
+  .text_goldbaren h3,
+  .text_cola h3,
+  .text_grapes h3 {
+    font-size: 45px !important;
   }
   .txt p:last-child {
     margin: 0;
@@ -1547,7 +1558,7 @@ body {
     font-size: 1rem;
   }
 }
-@media (max-width: 431px) {
+@media (max-width: 484px) {
   .splash {
     height: 93vh;
   }
@@ -1595,9 +1606,10 @@ body {
   /*con_wrap_wrap*/
   .con_wrap_wrap {
     height: 100vh;
-    max-height: 844px;
+    max-height: 710px;
   }
   .con_wrap {
+    width: 100%;
     height: 100%;
   }
   .con1_wrap {
@@ -1624,7 +1636,7 @@ body {
   }
   .cs_wrap_wrap {
     width: 100%;
-    height: 35rem;
+    height: 22rem;
     background-color: transparent;
   }
   .text_wrap {
@@ -1648,12 +1660,17 @@ body {
     font-size: 0.8rem;
     margin: 2rem 0rem;
   }
+  .txt p:last-child {
+    width: 100px;
+    padding: 5px 20px;
+    font-size: 0.9rem;
+  }
   .txt br {
     display: none;
   }
   .pack_wrap {
     width: calc(100% / 1.3);
-    height: 100%;
+    height: 50%;
     z-index: 8;
     background-color: transparent;
   }
@@ -1666,10 +1683,13 @@ body {
     transform: translate(-50%, -50%);
     margin: 0px auto;
   }
+  .jelly {
+    transform: scale(0.1) translate(-24%, -50%);
+  }
   .jelly.on {
     left: 68%;
-    top: 35%;
-    transform: scale(3) translate(-50%, -50%);
+    top: 45%;
+    transform: scale(7) translate(-24%, -50%);
   }
   /*con2*/
   :root {

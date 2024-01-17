@@ -283,9 +283,6 @@ $(function () {
         );
     }
     function fifthAnimation() {
-      $(spans[0]).stop().animate({ opacity: "0" }, 2000);
-      $(spans[1]).stop().animate({ opacity: "0" }, 2000);
-      $(spans[2]).stop().animate({ opacity: "0" }, 2000);
       $(spans[3]).addClass("on");
       $(gummy).addClass("on");
     }
