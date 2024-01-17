@@ -1595,11 +1595,13 @@ body {
   /*con_wrap_wrap*/
   .con_wrap_wrap {
     height: 100vh;
+    max-height: 844px;
   }
   .con_wrap {
-    height: 100vh;
+    height: 100%;
   }
   .con1_wrap {
+    height: 100%;
     padding-left: 0;
   }
   .carousel {
