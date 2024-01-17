@@ -387,10 +387,16 @@ $(function () {
 
     firstAnimation();
   }
+  /******************************visual animation***********************************************/
 
+  /***********************************load event********************************************/
   /*load event*/
   let loaded = false;
   $(window).on("load", function () {
+    if ($(window).width() < 431) {
+      mobile();
+      $(".con_wrap_wrap").off("wheel");
+    }
     if (!loaded) {
       let line = -150;
 
@@ -427,9 +433,10 @@ $(function () {
     loaded = true;
   });
 
-  /*wheel event*/
+  /***********************************load event********************************************/
+
+  /***********************************wheel event********************************************/
   let wheelEvent = function () {
-    console.log(k);
     let isScrolling = false;
 
     $(".con_wrap_wrap").off("wheel");
@@ -560,13 +567,23 @@ $(function () {
   $(".jelly:first-child").addClass("on");
   $(".bg:first-child").addClass("on");
 
+  /***********************************wheel event********************************************/
+
+  /***********************************scroll event********************************************/
   /*scroll event*/
   $(window).on("scroll", function () {
+    if ($(window).width() < 431) {
+      mobile();
+      $(".con_wrap_wrap").off("wheel");
+    }
     let line = -150;
     if (
       $(window).scrollTop() >= $("#container").offset().top &&
       $(window).scrollTop() <= $(".cards_wrap").offset().top + line
     ) {
+      if ($(window).width() < 431) {
+        $(".con_wrap_wrap").off("wheel");
+      }
       con1.classList.add("sticky");
     } else if (
       $(window).scrollTop() >= $(".con2").offset().top + line &&
@@ -590,42 +607,115 @@ $(function () {
       }
     }
   });
+  /***********************************scroll event********************************************/
 
+  /***********************************mobile event********************************************/
   /*모바일*/
-  if ($(window).width() < 431) {
-    $(window).on("scroll", function () {
-      let line = -150;
-      if (
-        $(window).scrollTop() >= $("#container").offset().top &&
-        $(window).scrollTop() <= $(".cards_wrap").offset().top + line
-      ) {
-        con1.classList.add("sticky");
-        scroll();
-        $(window).off("wheel".wheelEvent);
-      } else if (
-        $(window).scrollTop() >= $(".con2").offset().top + line &&
-        $(window).scrollTop() <= $(".con3").offset().top + line
-      ) {
-        con1.classList.remove("sticky");
-        $(".card").fadeIn(500);
-      } else if (
-        $(window).scrollTop() >= $(".con3").offset().top + line &&
-        $(window).scrollTop() <= $(".con4").offset().top + line
-      ) {
-        $(".con3").addClass("on");
-        if ($(window).scrollTop() >= $(".piw_1").offset().top + line) {
-          $(".piw_1").addClass("on");
-        }
-        if ($(window).scrollTop() >= $(".piw_1").offset().top + 60) {
-          $(".piw_2").addClass("on");
-          setTimeout(function () {
-            $(".piw_3").addClass("on");
-          }, 500);
-        }
-      }
-    });
-  }
+  let mobile = function () {
+    var k = 0;
+    let csHeight = document.querySelector(".text_wrap").offsetHeight;
+    let con1 = document.querySelector(".con_wrap");
+    let newTopValue = -csHeight;
+    let jWidth = document.querySelector(".sm_jelly:first-child").offsetWidth;
+    let newWidth = -jWidth;
+    let total = $(".pack").length - 1;
 
+    $(".prev").on("click", function () {
+      console.log(k);
+      if (k == 0) {
+        k = total;
+      } else {
+        k--;
+      }
+
+      let newText = $(".txt:last-child").clone();
+      let newSm = $(".sm_jelly:last-child").clone();
+
+      $(".txt:last-child").fadeOut(100, function () {
+        $(".text_wrap")
+          .stop()
+          .animate(
+            {
+              top: csHeight,
+            },
+            {
+              duration: 500,
+              complete: function () {
+                $(".txt:last-child").remove(),
+                  setTimeout(function () {
+                    $(".text_wrap").css({ top: "0" });
+                    newText.prependTo(".text_wrap");
+                  }, 100);
+              },
+            }
+          );
+      });
+      $(".sm_jelly:last-child").fadeOut(100, function () {
+        $(".sm_wrap")
+          .stop()
+          .animate(
+            {
+              left: jWidth,
+            },
+            {
+              duration: 700,
+              complete: function () {
+                $(".sm_jelly:last-child").remove();
+                $(".sm_wrap").css({ left: "0" });
+                newSm.prependTo(".sm_wrap");
+              },
+            }
+          );
+      });
+      $(".pack").removeClass("on");
+      $(".pack").eq(k).addClass("on");
+      $(".jelly").removeClass("on");
+      $(".jelly").eq(k).addClass("on");
+      $(".bg").removeClass("on");
+      $(".bg").eq(k).addClass("on");
+    });
+
+    $(".next").on("click", function () {
+      console.log(k);
+      if (k == total) {
+        k = 0;
+      } else {
+        k++;
+      }
+      $(".text_wrap")
+        .stop()
+        .animate(
+          {
+            top: newTopValue,
+          },
+          function () {
+            $(".txt:first-child").appendTo(".text_wrap");
+            $(".text_wrap").css({ top: "0" });
+          }
+        );
+      $(".sm_wrap")
+        .stop()
+        .animate(
+          {
+            left: newWidth,
+          },
+          function () {
+            $(".sm_jelly:first-child").appendTo(".sm_wrap");
+            $(".sm_wrap").css({ left: "0" });
+          }
+        );
+      $(".pack").removeClass("on");
+      $(".pack").eq(k).addClass("on");
+      $(".jelly").removeClass("on");
+      $(".jelly").eq(k).addClass("on");
+      $(".bg").removeClass("on");
+      $(".bg").eq(k).addClass("on");
+    });
+  };
+  mobile();
+  /***********************************mobile event********************************************/
+
+  /***********************************con3 card effect********************************************/
   /*con3 카드 효과*/
   let z = 0;
   $(".pro_back").fadeOut();
@@ -646,7 +736,9 @@ $(function () {
       z = 0;
     }
   });
+  /***********************************con3 card effect********************************************/
 
+  /***********************************carousel animtion********************************************/
   if ($(window).width() < 431) {
     /*con5 무한 캐러셀 애니메이션*/
     let carousel_1 = function () {
@@ -785,108 +877,5 @@ $(function () {
     carousel_3();
   }
 
-  let scroll = function () {
-    let scrollLimit = 10;
-    $(".con_wrap_wrap").on("scroll", function (event) {
-      let currentScroll = $(".con_wrap_wrap").scrollTop();
-
-      let isScrolling = false;
-      if (isScrolling) {
-        return;
-      }
-      isScrolling = true;
-
-      if (Math.abs(currentScroll - this_scroll) < scrollLimit) {
-        isScrolling = false;
-        return;
-      }
-
-      if (currentScroll > this_scroll) {
-        if (k == total) {
-          k = 0;
-        } else {
-          k++;
-        }
-        $(".text_wrap")
-          .stop()
-          .animate(
-            {
-              top: newTopValue,
-            },
-            function () {
-              $(".txt:first-child").appendTo(".text_wrap");
-              $(".text_wrap").css({ top: "0" });
-            }
-          );
-        $(".sm_wrap")
-          .stop()
-          .animate(
-            {
-              left: newWidth,
-            },
-            function () {
-              $(".sm_jelly:first-child").appendTo(".sm_wrap");
-              $(".sm_wrap").css({ left: "0" });
-            }
-          );
-      } else if (currentScroll < this_scroll) {
-        if (k == 0) {
-          k = total;
-        } else {
-          k--;
-        }
-        // $currentIndex = 0;
-        let newText = $(".txt:last-child").clone();
-        let newSm = $(".sm_jelly:last-child").clone();
-
-        $(".txt:last-child").fadeOut(100, function () {
-          $(".text_wrap")
-            .stop()
-            .animate(
-              {
-                top: csHeight,
-              },
-              {
-                duration: 500,
-                complete: function () {
-                  $(".txt:last-child").remove(),
-                    setTimeout(function () {
-                      $(".text_wrap").css({ top: "0" });
-                      newText.prependTo(".text_wrap");
-                    }, 100);
-                },
-              }
-            );
-        });
-        $(".sm_jelly:last-child").fadeOut(100, function () {
-          $(".sm_wrap")
-            .stop()
-            .animate(
-              {
-                left: jWidth,
-              },
-              {
-                duration: 700,
-                complete: function () {
-                  $(".sm_jelly:last-child").remove();
-                  $(".sm_wrap").css({ left: "0" });
-                  newSm.prependTo(".sm_wrap");
-                },
-              }
-            );
-        });
-      }
-      $(".pack").removeClass("on");
-      $(".pack").eq(k).addClass("on");
-      $(".jelly").removeClass("on");
-      $(".jelly").eq(k).addClass("on");
-      $(".bg").removeClass("on");
-      $(".bg").eq(k).addClass("on");
-
-      setTimeout(function () {
-        isScrolling = false;
-      }, 1000);
-    });
-  };
-  scroll();
+  /***********************************carousel animation********************************************/
 });

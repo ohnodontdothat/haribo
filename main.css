@@ -175,6 +175,9 @@ body {
   justify-content: space-around;
   align-items: center;
 }
+.arrow {
+  display: none;
+}
 /*text*/
 .cs_wrap_wrap {
   width: calc(100% / 3);
@@ -1591,7 +1594,7 @@ body {
   }
   /*con_wrap_wrap*/
   .con_wrap_wrap {
-    height: 350vh;
+    height: 100vh;
   }
   .con_wrap {
     height: 100vh;
@@ -1603,6 +1606,19 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .arrow {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 80;
+  }
+  .arrow span {
+    font-size: 30px;
+    cursor: pointer;
   }
   .cs_wrap_wrap {
     width: 100%;
